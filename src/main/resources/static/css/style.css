@@ -29,7 +29,8 @@ a {
     padding: 2em;
 }
 
-.vizitka {
+.vizitka,
+.vizitka--formular{
     width: 36em;
     height: 16em;
     border: 1px solid gray;
@@ -41,6 +42,10 @@ a {
     flex-direction: column;
     justify-content: space-between;
     transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.vizitka--formular {
+    height: auto;
 }
 
 .vizitka--nova {
@@ -92,7 +97,8 @@ a:hover .vizitka {
     font-size: 150%;
 }
 
-.detail nav a {
+.detail nav a,
+.detail h1 {
     color: white;
 }
 
