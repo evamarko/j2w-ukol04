@@ -17,41 +17,41 @@ import java.util.List;
  */
 @Controller
 public class VizitkaController {
-  private final VizitkaService service;
+    private final VizitkaService service;
 
-  public VizitkaController(VizitkaService service) {
-    this.service = service;
-  }
+    public VizitkaController(VizitkaService service) {
+        this.service = service;
+    }
 
-  @GetMapping("/")
-  public ModelAndView seznam() {
-    ModelAndView result = new ModelAndView("seznam");
-    result.addObject("seznam", service.getAll());
-    return result;
-  }
+    @GetMapping("/")
+    public ModelAndView seznam() {
+        ModelAndView result = new ModelAndView("seznam");
+        result.addObject("seznam", service.getAll());
+        return result;
+    }
 
-  @GetMapping("/detail/{id}")
-  public ModelAndView detail(@PathVariable int id) {
-    ModelAndView result = new ModelAndView("detail");
-    result.addObject("vizitka", service.getById(id));
-    return result;
-  }
+    @GetMapping("/detail/{id}")
+    public ModelAndView detail(@PathVariable int id) {
+        ModelAndView result = new ModelAndView("detail");
+        result.addObject("vizitka", service.getById(id));
+        return result;
+    }
 
-  @GetMapping("/nova")
-  public ModelAndView nova(Vizitka vizitka) {
-    ModelAndView result = new ModelAndView("nova");
-    return result;
-  }
+    @GetMapping("/nova")
+    public ModelAndView nova(Vizitka vizitka) {
+        ModelAndView result = new ModelAndView("nova");
+        return result;
+    }
 
-  @PostMapping("/nova")
-  public String append(Vizitka vizitka) {
-    service.append(vizitka);
-    return "redirect:/";
-  }
+    @PostMapping("/nova")
+    public String append(Vizitka vizitka) {
+        service.append(vizitka);
+        return "redirect:/";
+    }
 
-  @PostMapping("/delete")
-  public String delete(int id) {
-    service.deleteById(id);
-    return "redirect:/";
-  }
+    @PostMapping("/delete")
+    public String delete(int id) {
+        service.deleteById(id);
+        return "redirect:/";
+    }
 }
